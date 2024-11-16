@@ -25,7 +25,7 @@ Project is created with:
 - SCSS
 - Tailwind CSS
 
-<!-- ## Live app [https://m-hamo.github.io/iZam](https://m-hamo.github.io/iZam/) -->
+## Live app [https://m-hamo.github.io/iZam](https://m-hamo.github.io/iZam/)
 
 ## Clone app
 
