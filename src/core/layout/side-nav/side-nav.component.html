@@ -1,0 +1,167 @@
+<section
+  class="w-full h-full flex flex-col justify-start items-stretch shadow-xl bg-white"
+>
+  <div
+    class="h-20 flex justify-between items-center px-3 border-b-[1px] border-b-[#E9E9E9]"
+  >
+    <span class="text-sm font-medium font-sans px-2 text-[#404040]">Menu</span>
+
+    @if(!editMode()){
+    <button
+      class="outline-none border-none flex justify-center items-center p-2"
+      (click)="editMode.set(true)"
+    >
+      <img
+        class="w-6 h-6"
+        src="assets/icons/lets-icons_setting-line-light.svg"
+        alt="settings"
+      />
+    </button>
+    }@else {
+    <div class="flex justify-center items-center gap-2">
+      <button
+        class="h-9 w-9 outline-none border-2 border-red-600 rounded-full flex justify-center items-center"
+        (click)="editMode.set(false)"
+      >
+        <mat-icon class="text-lg text-red-600">close</mat-icon>
+      </button>
+
+      <button
+        class="h-9 w-9 outline-none border-2 border-green-500 rounded-full flex justify-center items-center"
+        (click)="onSaveChange()"
+      >
+        <mat-icon class="text-lg text-green-500">done</mat-icon>
+      </button>
+    </div>
+    }
+  </div>
+
+  @if(editMode()){
+  <ul
+    cdkDropList
+    [cdkDropListData]="updateList()"
+    (cdkDropListDropped)="drop(updateList(), $event)"
+    class="flex flex-col justify-start items-stretch gap-3 py-4 px-2 list-none"
+  >
+    @for (nav of updateList(); track $index) {
+    <li cdkDrag class="flex flex-col justify-start items-stretch gap-2">
+      @let hasChildren = nav.children?.length;
+      <a
+        class="h-12 w-full flex justify-between items-center rounded-sm px-3 cursor-pointer font-medium text-[#404040] bg-[#F7F7F7]"
+        (click)="onOpenNav(updateList(), nav)"
+      >
+        <div
+          [ngClass]="{ 'text-[#CDCDCD]': !nav.visible }"
+          class="flex justify-center items-center gap-1"
+        >
+          <mat-icon class="cursor-move">drag_indicator</mat-icon>
+
+          @if(nav.editTitle){
+          <input
+            #input
+            [(ngModel)]="nav.title"
+            type="text"
+            class="block border-1 border-gray-300 rounded-full outline-none bg-transparent focus:border-gray-300 focus:ring-0 text-[#404040]"
+            (click)="$event.stopPropagation()"
+          />
+          }@else { <span>{{ nav.title }}</span> }
+        </div>
+
+        <div
+          class="flex justify-center items-center gap-1"
+          (click)="$event.stopPropagation()"
+        >
+          <button
+            class="h-8 w-8 outline-none border-none rounded-full"
+            (click)="nav.editTitle = !nav.editTitle"
+          >
+            <mat-icon class="text-2xl text-gray-400">edit</mat-icon>
+          </button>
+          <button
+            class="h-8 w-8 outline-none border-none rounded-full"
+            (click)="nav.visible = !nav.visible"
+          >
+            <mat-icon class="text-2xl text-gray-400">{{
+              nav.visible ? "visibility" : "visibility_off"
+            }}</mat-icon>
+          </button>
+        </div>
+      </a>
+    </li>
+
+    @if (hasChildren && nav.opened) {
+    <div
+      cdkDropList
+      [cdkDropListData]="$any(nav.children)"
+      (cdkDropListDropped)="drop($any(nav.children), $event)"
+      class="p-0 m-0"
+    >
+      @for (item of nav.children; track $index) {
+      <a
+        cdkDrag
+        class="h-12 w-full flex justify-between items-center rounded-sm ps-8 pe-3 cursor-pointer font-medium text-[#404040] hover:bg-[#F7F7F7]"
+        (click)="$event.stopPropagation()"
+      >
+        <div
+          [ngClass]="{ 'text-[#CDCDCD]': !item.visible }"
+          class="flex justify-center items-center gap-1"
+        >
+          <mat-icon>drag_indicator</mat-icon>
+          <span>{{ item.title }}</span>
+        </div>
+
+        <div
+          class="flex justify-center items-center gap-1"
+          (click)="$event.stopPropagation()"
+        >
+          <button class="h-8 w-8 outline-none border-none rounded-full">
+            <mat-icon class="text-2xl text-gray-400">edit</mat-icon>
+          </button>
+          <button
+            class="h-8 w-8 outline-none border-none rounded-full"
+            (click)="item.visible = !item.visible"
+          >
+            <mat-icon class="text-2xl text-gray-400">{{
+              item.visible ? "visibility" : "visibility_off"
+            }}</mat-icon>
+          </button>
+        </div>
+      </a>
+      }
+    </div>
+    } }
+  </ul>
+  } @else {
+  <ul
+    class="flex flex-col justify-start items-stretch gap-3 py-4 px-2 list-none"
+  >
+    @for (nav of menuList(); track $index) { @if(nav.visible){
+    <li class="flex flex-col justify-start items-stretch gap-2">
+      @let hasChildren = nav.children?.length;
+
+      <a
+        class="h-12 w-full flex justify-between items-center rounded-sm px-3 cursor-pointer font-medium text-[#404040] bg-[#F7F7F7]"
+        (click)="onOpenNav(menuList(), nav)"
+      >
+        <span>{{ nav.title }}</span>
+
+        @if (hasChildren) {
+        <mat-icon>{{
+          nav.opened ? "keyboard_arrow_up" : "expand_more"
+        }}</mat-icon>
+        }
+      </a>
+
+      @if (hasChildren && nav.opened) { @for (item of nav.children; track
+      $index) { @if(item.visible){
+      <a
+        class="h-12 w-full flex justify-between items-center rounded-sm px-8 cursor-pointer font-medium text-[#404040] hover:bg-[#F7F7F7]"
+      >
+        <span>{{ item.title }}</span>
+      </a>
+      } } }
+    </li>
+    } }
+  </ul>
+  }
+</section>

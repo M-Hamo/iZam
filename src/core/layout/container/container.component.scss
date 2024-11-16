@@ -1,0 +1,18 @@
+mat-drawer {
+  width: 20vw;
+  background-color: transparent;
+
+  @media (min-width: 960px) and (max-width: 1279.98px) {
+    width: 24vw;
+    padding: 0;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 100vw;
+    padding: 0;
+  }
+}
+
+.mat-drawer-side {
+  border-right: none !important;
+}

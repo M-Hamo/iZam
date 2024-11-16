@@ -1,0 +1,17 @@
+.hidden-sm {
+  display: none;
+}
+
+.reverse-dir {
+  direction: rtl;
+}
+
+@media (min-width: 1024px) {
+  .hidden-sm {
+    display: flex;
+  }
+
+  .reverse-dir {
+    direction: ltr;
+  }
+}

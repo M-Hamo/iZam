@@ -1,0 +1,142 @@
+<header
+  class="reverse-dir h-20 w-full flex justify-between items-center md:px-16 px-6 lg:py-2 py-5 bg-[#161616]"
+>
+  <div class="flex justify-center items-center sm:gap-8 gap-4">
+    <a class="lg:text-xl text-3xl font-semibold font-sans text-white"
+      >i<span class="text-[#48A74C]">Z</span>AM</a
+    >
+
+    <div
+      class="hidden-sm sm:w-80 sm:h-12 flex justify-center items-center p-2 rounded-full bg-white"
+    >
+      <button
+        class="h-9 w-9 flex justify-center items-center rounded-full text-white bg-[#48A74C]"
+      >
+        <mat-icon style="height: 20px; width: 20px; font-size: 20px"
+          >search</mat-icon
+        >
+      </button>
+
+      <input
+        class="flex-grow border-none rounded-full outline-none focus:ring-0 placeholder:text-[#C4C3C3]"
+        type="text"
+        placeholder="Search by name, job title, ..."
+      />
+    </div>
+  </div>
+
+  <ul
+    class="overflow-x-auto hidden-sm flex justify-center items-center gap-14 list-none text-slate-100"
+  >
+    @for (item of navList(); track $index) {
+    <li>
+      <a
+        class="bg-red flex flex-col justify-center items-center gap-1"
+        href="#"
+      >
+        <img [src]="item.icon" [attr.alt]="item.title" class="w-6 h-w-6" />
+        <span class="font-sans text-sm font-normal">{{ item.title }}</span>
+      </a>
+    </li>
+    }
+
+    <div class="w-[1px] h-10 bg-[#D6D6D699]"></div>
+
+    <li>
+      <a
+        class="bg-red flex flex-col justify-center items-center gap-1"
+        href="#"
+      >
+        <img src="assets/icons/bell.svg" alt="item.title" class="w-6 h-w-6" />
+        <span class="font-sans text-sm font-normal">Notifications</span>
+      </a>
+    </li>
+
+    <li>
+      <a
+        class="bg-red flex flex-col justify-center items-center gap-1"
+        href="#"
+      >
+        <img
+          src="assets/icons/Group 2.svg"
+          alt="item.title"
+          class="w-6 h-w-6"
+        />
+        <span class="font-sans text-sm font-normal">Messaging</span>
+      </a>
+    </li>
+
+    <li>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        class="flex flex-col justify-center items-center gap-1"
+      >
+        <img
+          src="assets/images/person.jpg"
+          alt="profile"
+          class="w-8 h-8 rounded-full bg-cover"
+        />
+        <div class="flex justify-center items-center gap-1">
+          <span class="font-sans text-sm font-normal">Profile</span>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </div>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <div class="w-full flex justify-between items-center gap-6 py-5">
+            <div class="flex justify-start items-center gap-3">
+              <img
+                src="assets/images/person.jpg"
+                alt="profile"
+                class="w-12 h-12 rounded-full bg-cover"
+              />
+
+              <div class="flex flex-col justify-center items-start">
+                <span class="text-base text-[#161616] font-sans font-medium">
+                  Ahmed Amaar
+                </span>
+                <span class="text-sm text-gray-400 font-sans font-medium">
+                  Ux UI designer
+                </span>
+              </div>
+            </div>
+
+            <mat-icon style="margin: 0px; color: #d8d8d8"
+              >chevron_right</mat-icon
+            >
+          </div>
+        </button>
+        <mat-divider class="bg-[#F0F0F0]" />
+
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voice mail</span>
+        </button>
+        <mat-divider></mat-divider>
+
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+      </mat-menu>
+    </li>
+  </ul>
+
+  <button
+    class="lg:hidden relative flex flex-col justify-center items-center gap-1"
+  >
+    <img
+      src="assets/images/person.jpg"
+      alt="profile"
+      class="w-12 h-12 rounded-full bg-cover"
+    />
+
+    <div
+      class="absolute -right-2 -bottom-2 flex justify-center items-center rounded-full bg-slate-50 text-gray-400"
+    >
+      <mat-icon class="text-lg">menu</mat-icon>
+    </div>
+  </button>
+</header>
