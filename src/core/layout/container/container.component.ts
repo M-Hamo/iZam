@@ -16,6 +16,7 @@ import { Breakpoints } from '@angular/cdk/layout';
 import { tap } from 'rxjs/operators';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { SideNavComponent } from '../side-nav/side-nav.component';
+import { RouterModule } from '@angular/router';
 
 export enum DrawerModeTypeEnum {
   OVER = 'over',
@@ -27,7 +28,13 @@ export type DrawerMode = DrawerModeTypeEnum.OVER | DrawerModeTypeEnum.SIDE;
 @Component({
   selector: 'layout-container',
   standalone: true,
-  imports: [CommonModule, MatSidenavModule, HeaderComponent, SideNavComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatSidenavModule,
+    HeaderComponent,
+    SideNavComponent,
+  ],
   templateUrl: './container.component.html',
   styleUrl: './container.component.scss',
 })

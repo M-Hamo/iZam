@@ -3,3 +3,29 @@
 @import "scrollbar";
 @import "material";
 @import "tailwend";
+
+.show-sm {
+  display: flex;
+}
+
+.hidden-sm {
+  display: none;
+}
+
+.reverse-dir {
+  direction: rtl;
+}
+
+@media (min-width: 1024px) {
+  .hidden-sm {
+    display: flex;
+  }
+
+  .show-sm {
+    display: none;
+  }
+
+  .reverse-dir {
+    direction: ltr;
+  }
+}

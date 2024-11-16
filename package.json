@@ -26,7 +26,7 @@
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/line-clamp": "^0.4.4",
     "crypto-js": "^4.1.1",
-    "flowbite": "^2.4.1",
+    "flowbite": "^2.5.2",
     "material-icons": "^1.13.12",
     "ngx-progressbar": "^8.0.0",
     "rxjs": "~7.8.0",

@@ -1,0 +1,37 @@
+<div class="w-full flex justify-end items-center gap-2 py-4">
+  <button #dropdown data-dropdown-toggle="sortMenu" class="w-52" type="button">
+    <div class="flex justify-start items-center gap-2">
+      <span class="text-gray-900">Sorting by : </span>
+      <div class="flex justify-center items-center text-green-600">
+        <span>{{ sortBy() }}</span>
+        <mat-icon class="text-xl font-medium">expand_more</mat-icon>
+      </div>
+    </div>
+  </button>
+
+  <div
+    id="sortMenu"
+    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60"
+  >
+    <div class="flex justify-center items-center gap-2 py-3">
+      <span class="text-gray-900">Sorting by : </span>
+      <div class="flex justify-center items-center gap-1 text-green-600">
+        <span>Top match</span>
+        <mat-icon class="text-xl font-medium">keyboard_arrow_up</mat-icon>
+      </div>
+    </div>
+
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+      @for (item of sortList(); track $index) {
+      <li>
+        <a
+          [ngClass]="{ 'text-green-600 bg-gray-100': item === sortBy() }"
+          class="block px-4 py-3 hover:bg-gray-100 hover:text-green-600 cursor-pointer"
+          (click)="sortBy.set(item); dropdown.click()"
+          >{{ item }}</a
+        >
+      </li>
+      }
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<section
+  class="w-full h-full flex flex-col justify-start items-stretch ps-4 lg:pe-12 pe-4 py-6"
+>
+  <sort-list class="hidden-sm" [(sortBy)]="sortBy" />
+
+  <jobs-positions [(setAlert)]="setAlert" (onOpenMenu)="onOpenMenu()" />
+</section>

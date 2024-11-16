@@ -53,6 +53,12 @@ h1 {
   margin: 0.67em 0;
 }
 
+h2,
+h3 {
+  padding: 0;
+  margin: 0 !important;
+}
+
 /**
  * 1. Add the correct box sizing in Firefox.
  * 2. Show the overflow in Edge and IE.

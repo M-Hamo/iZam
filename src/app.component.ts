@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { NgxProgressBarModule } from '@core';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +13,6 @@ import { NgxProgressBarModule } from '@core';
 export class AppComponent {
   public constructor(private readonly _iconRegistry: MatIconRegistry) {
     this._iconRegistry.setDefaultFontSetClass('material-icons-outlined');
+    initFlowbite();
   }
 }

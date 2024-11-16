@@ -21,6 +21,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Observable } from 'rxjs';
 import { retry, switchMap, take, tap } from 'rxjs/operators';
 import { FormsModule } from '@angular/forms';
+import { SideToggleService } from '@shared';
 
 @Component({
   selector: 'side-nav',
@@ -30,6 +31,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './side-nav.component.scss',
 })
 export class SideNavComponent implements OnInit {
+  readonly #sideToggleService = inject(SideToggleService);
   readonly #MenuService = inject(MenuService);
   readonly #destroyRef = inject(DestroyRef);
 
@@ -76,6 +78,8 @@ export class SideNavComponent implements OnInit {
     this._track({ id, from: event.previousIndex, to: event.currentIndex });
     moveItemInArray(list, event.previousIndex, event.currentIndex);
   };
+
+  public onCloseSide = (): void => this.#sideToggleService.close();
 
   private _track = (item: TrackNavItem): void => {
     this.#MenuService
