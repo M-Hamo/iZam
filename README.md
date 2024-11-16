@@ -1,12 +1,12 @@
-# Real Estate App
+# iZam App
 
-A web application to collect information about real estate and homes.
+A web application for jobs.
 
 ## Technologies & Packages
 
 Project is created with:
 
-- Angular 18.1 (latest)
+- Angular 18.2 (latest)
   - Using Signals
   - Required inputs
   - Flexible ngOnDestroy
@@ -25,7 +25,7 @@ Project is created with:
 - SCSS
 - Tailwind CSS
 
-## Live app [https://m-hamo.github.io/iZam](https://m-hamo.github.io/iZam/)
+<!-- ## Live app [https://m-hamo.github.io/iZam](https://m-hamo.github.io/iZam/) -->
 
 ## Clone app
 
@@ -36,7 +36,6 @@ git clone `https://github.com/M-Hamo/iZam.git`
 To run this project, install it locally using npm:
 
 ```pwsh
-cd ./iZam
 npm install
 npm start
 Open your browser on http://localhost:5200/

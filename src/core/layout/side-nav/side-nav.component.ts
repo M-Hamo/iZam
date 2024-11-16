@@ -58,7 +58,10 @@ export class SideNavComponent implements OnInit {
 
   public onSaveChange = (): void => {
     this.dataLoaded.set(false);
-    const payload = this.updateList().map(({ opened, ...nav }) => ({ ...nav }));
+    const payload = this.updateList().map(({ opened, editTitle, ...nav }) => ({
+      ...nav,
+      children: nav.children?.map(({ editTitle, ...item }) => item),
+    }));
 
     this.#MenuService
       .updateMenu(payload)
