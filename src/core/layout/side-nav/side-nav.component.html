@@ -139,7 +139,7 @@
     </div>
     } }
   </ul>
-  } @else {
+  } @else { @if(dataLoaded()){ @if(isVisible()) {
   <ul
     class="flex flex-col justify-start items-stretch gap-3 py-4 px-2 list-none"
   >
@@ -171,5 +171,28 @@
     </li>
     } }
   </ul>
-  }
+  } @else {
+  <div class="h-full flex flex-col justify-center items-center gap-6">
+    <img
+      class="w-20 h-20"
+      src="assets/icons/lets-icons_setting-line-light.svg"
+      alt="settings"
+    />
+
+    <button
+      class="h-10 px-4 text-center rounded-md border-2 border-gray-600 text-gray-800"
+      (click)="editMode.set(true)"
+    >
+      Open settings
+    </button>
+  </div>
+  } } @else {
+  <div class="h-full flex flex-col justify-center items-center gap-6">
+    <img
+      class="w-20 h-20 animate-bounce"
+      src="assets/icons/lets-icons_setting-line-light.svg"
+      alt="settings"
+    />
+  </div>
+  } }
 </section>

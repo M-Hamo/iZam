@@ -43,7 +43,10 @@ export class SideNavComponent implements OnInit {
       : structuredClone(this.menuList())
   );
 
-  // TODO: show no data & loader
+  public readonly isVisible: Signal<boolean> = computed(() =>
+    this.menuList().some(({ visible }) => visible)
+  );
+
   public readonly dataLoaded: WritableSignal<boolean> = signal(false);
 
   public readonly editMode: WritableSignal<boolean> = signal(false);

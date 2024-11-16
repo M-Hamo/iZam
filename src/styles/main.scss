@@ -5,11 +5,11 @@
 @import "tailwend";
 
 .show-sm {
-  display: flex;
+  display: flex !important;
 }
 
 .hidden-sm {
-  display: none;
+  display: none !important;
 }
 
 .reverse-dir {
@@ -18,11 +18,11 @@
 
 @media (min-width: 1024px) {
   .hidden-sm {
-    display: flex;
+    display: flex !important;
   }
 
   .show-sm {
-    display: none;
+    display: none !important;
   }
 
   .reverse-dir {

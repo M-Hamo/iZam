@@ -1,1 +1,67 @@
-<p>job works!</p>
+<section
+  [ngClass]="{ 'border-[#48A74C] bg-[#F3FDF3]': selected }"
+  class="w-full flex flex-col justify-start items-start divide-y-[1px] cursor-pointer divide-slate-200 rounded border-[1px] border-[#F3FDF3] hover:border-[#48A74C] bg-white hover:bg-[#F3FDF3]"
+>
+  <div
+    class="w-full flex flex-col justify-start items-start lg:py-6 py-3 lg:px-6 px-3 lg:gap-4 gap-2"
+  >
+    <div class="w-full flex justify-between items-start">
+      <div class="flex justify-center items-center lg:gap-3 gap-2">
+        <img
+          class="h-12 w-12 bg-cover"
+          src="assets/icons/job1.svg"
+          alt="job1"
+        />
+
+        <div class="flex flex-col justify-center items-start">
+          <h4 class="text-gray-900">Gaming UI designer</h4>
+          <span class="text-sm font-sans font-semibold text-[#14A077]"
+            >Rocketer Games
+          </span>
+        </div>
+      </div>
+
+      <button
+        class="lg:h-11 h-8 lg:w-11 w-8 flex justify-center items-center rounded-full border-[1px] border-slate-300 bg-white text-slate-300"
+      >
+        <mat-icon class="text-lg">favorite</mat-icon>
+      </button>
+    </div>
+
+    <div class="w-full flex justify-start items-center lg:gap-3 gap-2">
+      <div class="flex justify-center items-center gap-1">
+        <img
+          class="h-4 w-4 bg-cover"
+          src="assets/icons/location.svg"
+          alt="location"
+        />
+
+        <span class="font-sans text-base text-gray-600">Cairo, Egypt</span>
+      </div>
+
+      <div class="flex justify-center items-center gap-1">
+        <img
+          class="h-4 w-4 bg-cover"
+          src="assets/icons/date.svg"
+          alt="location"
+        />
+
+        <span class="font-sans text-base text-gray-600">month ago</span>
+      </div>
+    </div>
+
+    <div class="w-full flex justify-start items-center gap-1">
+      <div class="py-1 px-3 rounded-md bg-slate-100 text-gray-600">
+        0 - 3y of exp
+      </div>
+      <div class="py-1 px-3 rounded-md bg-slate-100 text-gray-600">
+        Full time
+      </div>
+      <div class="py-1 px-3 rounded-md bg-slate-100 text-gray-600">Hybrid</div>
+    </div>
+  </div>
+
+  <div class="w-full lg:py-5 py-3 lg:px-6 px-3 text-start text-gray-600">
+    Creative / Design - IT / Software development - Gaming
+  </div>
+</section>

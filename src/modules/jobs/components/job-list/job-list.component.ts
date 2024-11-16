@@ -11,10 +11,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { SortListComponent } from '../sort-list/sort-list.component';
 import { JobsPositionsComponent } from '../jobs-positions/jobs-positions.component';
 import { SideToggleService } from '@shared';
+import { JobComponent } from '../job/job.component';
 
 const Components: Array<any[] | any> = [
   SortListComponent,
   JobsPositionsComponent,
+  JobComponent,
 ];
 
 @Component({
