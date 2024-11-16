@@ -1,0 +1,84 @@
+<section
+  id="drawer-navigation"
+  class="fixed top-0 left-0 z-40 w-4/6 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800"
+  tabindex="-1"
+  aria-labelledby="drawer-navigation-label"
+>
+  <div class="py-4 overflow-y-auto divide-y divide-gray-100">
+    @if(userInfo()){
+    <button class="w-full m-0 border-none outline-none p-3">
+      <div class="w-full flex justify-between items-center gap-6">
+        <div class="flex justify-start items-center gap-3">
+          <img
+            [src]="userInfo().img"
+            [alt]="userInfo().name"
+            class="w-14 h-14 rounded-full bg-cover"
+          />
+
+          <div class="flex flex-col justify-center items-start">
+            <span class="text-lg text-[#161616] font-sans font-medium">
+              {{ userInfo().name }}
+            </span>
+            <span class="text-base text-gray-400 font-sans font-normal">
+              {{ userInfo().description }}
+            </span>
+          </div>
+        </div>
+
+        <mat-icon class="text-2xl m-0 text-gray-300">chevron_right</mat-icon>
+      </div>
+    </button>
+    }
+
+    <ul class="w-full py-2 text-base text-gray-800">
+      @for (item of menuList(); track $index) {
+      <li>
+        <a
+          class="block px-3 py-2 font-sans hover:bg-gray-100 hover:text-green-600 rounded-md cursor-pointer"
+        >
+          <div class="flex justify-start items-center gap-3">
+            <img
+              [src]="item.icon"
+              [alt]="item.title"
+              class="w-7 h-7 rounded-full"
+            />
+
+            <span class="text-base text-[#161616] font-sans font-normal">
+              {{ item.title }}
+            </span>
+          </div>
+        </a>
+      </li>
+      }
+    </ul>
+
+    <ul class="w-full py-2 text-base text-gray-800">
+      <li>
+        <a
+          class="block px-3 py-2 font-sans hover:bg-gray-100 hover:text-green-600 rounded-md cursor-pointer"
+          >Setting and privacy</a
+        >
+      </li>
+      <li>
+        <a
+          class="block px-3 py-2 font-sans hover:bg-gray-100 hover:text-green-600 rounded-md cursor-pointer"
+          >Language</a
+        >
+      </li>
+      <li>
+        <a
+          class="block px-3 py-2 font-sans hover:bg-gray-100 hover:text-green-600 rounded-md cursor-pointer"
+          >Help</a
+        >
+      </li>
+    </ul>
+
+    <div>
+      <button
+        class="w-full m-0 border-none outline-none text-start hover:bg-gray-100 text-red-600 rounded-md p-3"
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+</section>

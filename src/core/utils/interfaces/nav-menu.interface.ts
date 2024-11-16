@@ -16,3 +16,14 @@ export interface TrackNavItem {
   from: number;
   to: number;
 }
+
+export interface HeaderItem {
+  title?: string;
+  icon?: string;
+}
+
+export interface UserInfo {
+  name: string;
+  description: string;
+  img: string;
+}
