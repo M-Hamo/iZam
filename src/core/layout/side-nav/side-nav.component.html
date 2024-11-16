@@ -28,14 +28,14 @@
     }@else {
     <div class="flex justify-center items-center gap-2">
       <button
-        class="h-9 w-9 outline-none border-2 border-red-600 rounded-full flex justify-center items-center"
+        class="h-10 w-10 outline-none border-2 border-red-600 rounded-full flex justify-center items-center"
         (click)="editMode.set(false)"
       >
         <mat-icon class="text-lg text-red-600">close</mat-icon>
       </button>
 
       <button
-        class="h-9 w-9 outline-none border-2 border-green-500 rounded-full flex justify-center items-center"
+        class="h-10 w-10 outline-none border-2 border-green-500 rounded-full flex justify-center items-center"
         (click)="onSaveChange()"
       >
         <mat-icon class="text-lg text-green-500">done</mat-icon>
@@ -60,16 +60,15 @@
       >
         <div
           [ngClass]="{ 'text-[#CDCDCD]': !nav.visible }"
-          class="flex justify-center items-center gap-1"
+          class="grow flex justify-start items-center gap-1"
         >
           <mat-icon class="cursor-move">drag_indicator</mat-icon>
 
           @if(nav.editTitle){
           <input
-            #input
             [(ngModel)]="nav.title"
             type="text"
-            class="block border-1 border-gray-300 rounded-full outline-none bg-transparent focus:border-gray-300 focus:ring-0 text-[#404040]"
+            class="max-w-[155px] border-1 border-gray-300 rounded-full outline-none bg-transparent focus:border-gray-300 focus:ring-0 text-[#404040]"
             (click)="$event.stopPropagation()"
           />
           }@else { <span>{{ nav.title }}</span> }
@@ -80,16 +79,16 @@
           (click)="$event.stopPropagation()"
         >
           <button
-            class="h-8 w-8 outline-none border-none rounded-full"
+            class="h-10 w-10 outline-none border-none rounded-full"
             (click)="nav.editTitle = !nav.editTitle"
           >
-            <mat-icon class="text-2xl text-gray-400">edit</mat-icon>
+            <mat-icon class="text-gray-400">edit</mat-icon>
           </button>
           <button
-            class="h-8 w-8 outline-none border-none rounded-full"
+            class="h-10 w-10 outline-none border-none rounded-full"
             (click)="nav.visible = !nav.visible"
           >
-            <mat-icon class="text-2xl text-gray-400">{{
+            <mat-icon class="text-gray-400">{{
               nav.visible ? "visibility" : "visibility_off"
             }}</mat-icon>
           </button>
@@ -122,14 +121,14 @@
           class="flex justify-center items-center gap-1"
           (click)="$event.stopPropagation()"
         >
-          <button class="h-8 w-8 outline-none border-none rounded-full">
-            <mat-icon class="text-2xl text-gray-400">edit</mat-icon>
+          <button class="h-10 w-10 outline-none border-none rounded-full">
+            <mat-icon class="text-gray-400">edit</mat-icon>
           </button>
           <button
-            class="h-8 w-8 outline-none border-none rounded-full"
+            class="h-10 w-10 outline-none border-none rounded-full"
             (click)="item.visible = !item.visible"
           >
-            <mat-icon class="text-2xl text-gray-400">{{
+            <mat-icon class="text-gray-400">{{
               item.visible ? "visibility" : "visibility_off"
             }}</mat-icon>
           </button>

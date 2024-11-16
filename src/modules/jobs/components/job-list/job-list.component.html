@@ -5,8 +5,5 @@
 
   <jobs-positions [(setAlert)]="setAlert" (onOpenMenu)="onOpenMenu()" />
 
-  <app-job />
-  <app-job />
-  <app-job />
-  <app-job />
+  @for (item of jobList(); track $index) { <app-job [job]="item" /> }
 </section>
