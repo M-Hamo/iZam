@@ -114,14 +114,25 @@
           class="flex justify-center items-center gap-1"
         >
           <mat-icon>drag_indicator</mat-icon>
-          <span>{{ item.title }}</span>
+
+          @if(item.editTitle){
+          <input
+            [(ngModel)]="item.title"
+            type="text"
+            class="max-w-[155px] border-1 border-gray-300 rounded-full outline-none bg-transparent focus:border-gray-300 focus:ring-0 text-[#404040]"
+            (click)="$event.stopPropagation()"
+          />
+          }@else { <span>{{ item.title }}</span> }
         </div>
 
         <div
           class="flex justify-center items-center gap-1"
           (click)="$event.stopPropagation()"
         >
-          <button class="h-10 w-10 outline-none border-none rounded-full">
+          <button
+            class="h-10 w-10 outline-none border-none rounded-full"
+            (click)="item.editTitle = !item.editTitle"
+          >
             <mat-icon class="text-gray-400">edit</mat-icon>
           </button>
           <button
